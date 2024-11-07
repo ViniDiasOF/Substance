@@ -105,7 +105,7 @@ nav ul li a:hover {
   }
   
   .formulario input {
-    border: 2px solid #32b9cd;
+    border: 2px solid yellow;
     text-align: center;
     border-radius: 30px;
     height: 30px;
@@ -113,7 +113,7 @@ nav ul li a:hover {
   }
   
   .formulario select {
-    border: 2px solid #32b9cd;
+    border: 2px solid yellow;
     background-color: white;
     color: gray;
     height: 36px;

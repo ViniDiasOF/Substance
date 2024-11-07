@@ -79,7 +79,7 @@ nav ul li a:hover {
   
   .card {
     width: 70%;
-    background-color: #204154;
+    background-color: #204154 ;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -108,7 +108,7 @@ nav ul li a:hover {
   }
   
   .formulario input {
-    border: 2px solid #32b9cd;
+    border: 2px solid yellow;
     text-align: center;
     border-radius: 30px;
     height: 30px;
@@ -116,7 +116,7 @@ nav ul li a:hover {
   }
   
   .formulario select {
-    border: 2px solid #32b9cd;
+    border: 2px solid yellow;
     background-color: white;
     color: gray;
     height: 36px;
@@ -156,18 +156,15 @@ a button {
     font-weight: bold;
     transition: color 0.3s ease;
 }
-
-  
-  .loading-div {
-    width: 50px;
-    display: none;
-  }
-  
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
   
   #div_erros_login {
     display: none
   }
+
+.reforco {
+  text-align: end;
+}
+
+.reforco u {
+  color: #fff;
+}
