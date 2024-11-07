@@ -108,6 +108,7 @@ nav ul li a:hover {
 .content {
     padding: 100px 20px;
     text-align: center;
+    line-height: 50px;
     background-color: rgb(32, 30, 30);
     min-height: 50vh;
     color: #f4f4f4;
