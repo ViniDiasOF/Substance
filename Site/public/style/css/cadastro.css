@@ -136,8 +136,8 @@ nav ul li a:hover {
     transition: all 0.3s ease;
   }
   
-.input input[type="text"]:focus ~ .underline,
-.input input[type="text"]:valid ~ .underline {
+.input input:focus ~ .underline,
+.input input:valid ~ .underline {
     transform: scaleX(1);
   }
 
@@ -162,22 +162,22 @@ nav ul li a:hover {
  }
  
 .botao:hover {
-  box-shadow: 7px 5px 56px -14px #C3D900;
+  box-shadow: 7px 5px 56px -14px yellow;
  }
  
 .botao:active {
   transform: scale(0.97);
-  box-shadow: 7px 5px 56px -10px #C3D900;
+  box-shadow: 7px 5px 56px -10px yellow;
  }
   
 #div_erros_login {
   display: none
  }
 
-.reforco {
-  text-align: end;
+#mensagem_erro{
+  color: yellow;
 }
 
-.reforco u {
-  color: #fff;
+#mensagem_erro a{
+  color: hotpink
 }
