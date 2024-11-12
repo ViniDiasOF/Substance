@@ -351,3 +351,10 @@ input {
   75%  {transform: rotate(-25deg)}
   100% {transform: rotate(25deg)}
 }
+
+
+.logo img {
+  height: 70px;
+  width: 70px;
+  padding-top: 10px;
+}

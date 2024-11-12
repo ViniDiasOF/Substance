@@ -62,24 +62,23 @@ nav ul li a:hover {
 .login {
     height: 100%;
     width: 100%;
-    background-image: url(../img/cartao.jpg);
+    background-image: url(../img/suebanheiro2.jpg);
     background-size: cover;
   }
   
 .login .container {
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    padding-left: 600px;
-    padding-right: 200px;
     display: flex;
+    margin-left: 200px;
   }
 
 .formulario {
     display: grid;
     place-items: center;
     width: 400px;
-    height: 350px;
+    height: 400px;
     padding: 20px;
     margin-right: 100px;
     background-color: #161616;
