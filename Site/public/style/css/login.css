@@ -62,12 +62,12 @@ nav ul li a:hover {
 .login {
     height: 100%;
     width: 100%;
-    background-image: url(../img/suebanheiro2.jpg);
+    background-image: url(../img/armarios.jpg);
     background-size: cover;
   }
   
 .login .container {
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     height: 100vh;
     display: flex;
@@ -81,7 +81,8 @@ nav ul li a:hover {
     height: 400px;
     padding: 20px;
     margin-right: 100px;
-    background-color: #161616;
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 15px 60px yellow;
     outline: 1px solid yellow;
     border-radius: 10px;

@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-  }
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: f4f4f4;
@@ -62,18 +58,27 @@ nav ul li a:hover {
 }
   
 .login {
-    height: 100%;
-    width: 100%;
-    background-image: url(../img/elisabethBanheiro.jpg);
-    background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   }
   
+.login video {
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+}
+
 .login .container {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
     display: flex;
-    margin-left: 200px;
+    margin-left: 150px;
+    z-index: 1;
   }
   
 .formulario {
@@ -83,8 +88,8 @@ nav ul li a:hover {
     width: 450px;
     height: 550px;
     padding: 20px;
-    margin-right: 150px;
-    background-color: #161616;
+    /* margin-right: 150px; */
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 15px 60px yellow;
     outline: 1px solid yellow;
     border-radius: 10px;
@@ -96,11 +101,13 @@ nav ul li a:hover {
 
 .input {
     position: relative;
-    width: 200px;
+    width: 300px;
+    color: yellow;
   }
   
 .input input{
     font-size: 20px;
+    color: white;
     width: 100%;
     border: none;
     border-bottom: 2px solid #ccc;
@@ -108,7 +115,12 @@ nav ul li a:hover {
     background-color: transparent;
     outline: none;
   }
-  
+
+.input select{
+  border-radius: 20px;
+  width: 90px;
+  height: 25px;
+}
 .input .label {
     position: absolute;
     top: 0;
