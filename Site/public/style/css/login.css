@@ -14,7 +14,7 @@ body {
     color: rgb(0, 0, 0);
 }
 
-  header {
+header {
     position: fixed;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -74,96 +74,108 @@ nav ul li a:hover {
     padding-right: 200px;
     display: flex;
   }
-  
-  .card {
-    width: 60%;
-    background-color: #204154;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 50%;
-    padding: 20px 0;
-  }
-  
-  .card h2 {
-    margin: 0;
-    font-size: 30px;
-  }
-  
-  .formulario {
-    display: flex;
-    height: 90%;
-    width: 80%;
-    justify-content:space-between;
-    flex-direction: column;
-  }
-  
-  .formulario span {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .formulario input {
-    border: 2px solid yellow;
-    text-align: center;
-    border-radius: 30px;
-    height: 30px;
-    margin: 20px;
-  }
-  
-  .formulario select {
-    border: 2px solid yellow;
-    background-color: white;
-    color: gray;
-    height: 36px;
-    text-align: center;
+
+.formulario {
+    display: grid;
+    place-items: center;
+    width: 400px;
+    height: 350px;
+    padding: 20px;
+    margin-right: 100px;
+    background-color: #161616;
+    box-shadow: 0px 15px 60px yellow;
+    outline: 1px solid yellow;
     border-radius: 10px;
-    margin: 0;
+  }
+
+.formulario h2{
+    color: white;
+  }
+
+.input {
+    position: relative;
+    width: 200px;
   }
   
-  .campo {
+.input input{
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+  }
+  
+.input .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: yellow;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+.input input[type="text"]:focus ~ .label,
+.input input[type="text"]:valid ~ .label {
+    top: -20px;
+    font-size: 16px;
+    color: yellow;
+  }
+  
+.input .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+  }
+  
+.input input:focus ~ .underline,
+.input input:valid ~ .underline {
+    transform: scaleX(1);
+  }
+
+.campo {
     display: flex;
     flex-direction: column;
     justify-content: start;
   }
   
-button {
-    font-size: x-large;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    color: white;
-    background-color: #232e44;
-    opacity: 0.8;
-    width: 100%;
-    cursor: pointer;
+.botao {
+  padding-left: 33px;
+  padding-right: 33px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-radius: 9px;
+  background: #d5f365;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+ }
+ 
+.botao:hover {
+  box-shadow: 7px 5px 56px -14px yellow;
+ }
+ 
+.botao:active {
+  transform: scale(0.97);
+  box-shadow: 7px 5px 56px -10px yellow;
+ }
+  
+#div_erros_login {
+  display: none
+ }
+
+#mensagem_erro{
+  color: yellow;
 }
 
-button:hover {
-    opacity: 1;
+#mensagem_erro a{
+  color: hotpink
 }
-
-a button {
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-  
-  .loading-div {
-    width: 50px;
-    display: none;
-  }
-  
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
-  
-  #div_erros_login {
-    display: none
-  }
-  
