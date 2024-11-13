@@ -46,7 +46,7 @@
             <br><br>
             <div class="input">
               Informe sua região:
-              <select class="select" id="">
+              <select class="select" id="regiao_slc">
                 <option value="#" selected disabled></option>
                 <option value="SP">São Paulo</option>
                 <option value="RJ">Rio de Janeiro</option>
@@ -57,7 +57,7 @@
             <br>
             <div>
               Qual motivo da compra:
-              <select class="select" id="">
+              <select class="select" id="motivo_slc">
                 <option value="#" selected disabled></option>
                 <option value="1">Influência</option>
                 <option value="2">Curiosidade</option>
@@ -88,33 +88,29 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
     var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
     var cpfVar = cpf_input.value;
+    var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var regiaoVar = regiao_slc.value;
+    var motivoVar = motivo_slc.value;
 
     // Verificando se há algum campo em branco
     if (
-      nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       cpfVar == "" ||
-      confirmacaoSenhaVar == ""
+      confirmacaoSenhaVar == "" ||
+      regiaoVar == "" ||
+      motivoVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      finalizarAguardar();
+      // finalizarAguardar();
       return false;
-    } else if (nomeVar.length <= 1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Nome muito curto)";
-
-      finalizarAguardar();
-      return false;
+    
     } else if (emailVar.includes('@') == false || emailVar.includes('.') == false) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -127,8 +123,9 @@
       mensagem_erro.innerHTML =
         "(Senha muita curto)";
 
-      finalizarAguardar();
-      return false; } else {
+      // finalizarAguardar();
+      return false; 
+    } else {
       setInterval(sumirMensagem, 5000);
     }
 
@@ -141,10 +138,11 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        cpfServer: cpfVar
+        cpfServer: cpfVar,
+        motivoServer: motivoVar,
+        regiaoServer: regiaoVar
       }),
     })
       .then(function (resposta) {
@@ -161,14 +159,14 @@
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
