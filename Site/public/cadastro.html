@@ -46,7 +46,7 @@
             <br><br>
             <div class="input">
               Informe sua região:
-              <select class="select" id="regiao_slc">
+              <select id="regiao_slc">
                 <option value="#" selected disabled></option>
                 <option value="SP">São Paulo</option>
                 <option value="RJ">Rio de Janeiro</option>
@@ -57,7 +57,7 @@
             <br>
             <div>
               Qual motivo da compra:
-              <select class="select" id="motivo_slc">
+              <select id="motivo_slc">
                 <option value="#" selected disabled></option>
                 <option value="1">Influência</option>
                 <option value="2">Curiosidade</option>
@@ -129,6 +129,8 @@
       setInterval(sumirMensagem, 5000);
     }
 
+    console.log(regiaoVar);
+    console.log(motivoVar);
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -152,7 +154,7 @@
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             window.location = "login.html";
