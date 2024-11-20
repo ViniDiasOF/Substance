@@ -4,15 +4,13 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-  }
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: f4f4f4;
     color: rgb(0, 0, 0);
 }
+
+/* Navbar */
 
 header {
     position: fixed;
@@ -60,28 +58,36 @@ nav ul li a:hover {
 }
   
 .login {
-    height: 100%;
-    width: 100%;
-    background-image: url(../img/armarios.jpg);
-    background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   }
   
+.login video {
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+}
+
 .login .container {
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     display: flex;
-    margin-left: 200px;
+    margin-left: 150px;
+    z-index: 1;
   }
-
+  
 .formulario {
+    margin-top: 40px;
     display: grid;
     place-items: center;
     width: 400px;
-    height: 400px;
+    height: 600px;
     padding: 20px;
-    margin-right: 100px;
-    margin-top: 100px;
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 15px 60px yellow;
     outline: 1px solid yellow;
@@ -94,11 +100,13 @@ nav ul li a:hover {
 
 .input {
     position: relative;
-    width: 200px;
+    width: 300px;
+    color: yellow;
   }
   
 .input input{
     font-size: 20px;
+    color: white;
     width: 100%;
     border: none;
     border-bottom: 2px solid #ccc;
@@ -106,7 +114,12 @@ nav ul li a:hover {
     background-color: transparent;
     outline: none;
   }
-  
+
+.input select{
+  border-radius: 20px;
+  width: 90px;
+  height: 25px;
+}
 .input .label {
     position: absolute;
     top: 0;

@@ -48,6 +48,7 @@ function cadastrar(req, res) {
     var cpf = req.body.cpfServer;
     var regiao = req.body.regiaoServer;
     var motivo = req.body.motivoServer;
+    var person = req.body.personServer;
 
     console.log(`
         email: ${email}
@@ -55,6 +56,8 @@ function cadastrar(req, res) {
         cpf: ${cpf}
         regiao: ${regiao}
         motivo: ${motivo}
+        person: ${person}
+
     `)
 
 
@@ -69,7 +72,7 @@ function cadastrar(req, res) {
     else{
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(email, senha, cpf, regiao, motivo)
+        usuarioModel.cadastrar(email, senha, cpf, regiao, motivo, person)
             .then(
                 function (resultado) {
                     res.json(resultado);

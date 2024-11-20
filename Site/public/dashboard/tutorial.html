@@ -9,7 +9,7 @@
     <title>The Substance (2024)</title>
 
 
-    <link rel="stylesheet" href="../style/css/css dashboard/tutorial.css">
+    <link rel="stylesheet" href="../style/css/css-dashboard/tutorial.css">
 
 
     <script src="../js/sessao.js"></script>
@@ -20,169 +20,92 @@
         rel="stylesheet">
 </head>
 <body>
-<!-- <body onload="validarSessao(),  atualizacaoPeriodica()"> -->
 
-    <div class="janela">
-
-        <div class="nav">
-
-            <a href="../index.html"><div class="logo"><img src="../style/img/logo-removebg-preview.png"></div></a>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_id">usuário</span>!</h3>
-            </div>
-
-            <a href="./inicio.html">
-            <button class="botao-inativo">
-                    <h3>início</h3>
-                </button>
+  <div class="janela">
+        
+    <div class="nav">
+        
+        <a href="../index.html"><div class="logo"><img src="../style/img/logo-removebg-preview.png"></div></a>
+        
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        </div>
+        
+        <button>
+            <a href="inicio.html">
+                <h3>Início</h3>
             </a>
-
-            <button class="botao-ativo">
+        </button>
+        
+        <button>
+            <a href="./tutorial.html">
                 <h3>Tutorial</h3>
-            </button>
+            </a>
+        </button>
+        
+        <button>
+            <a href="./dashboard.html">
+                <h3>Gráficos</h3>
+            </a>
+        </button>
+        
+        <button>
+            <a href="./mural.html">
+                <h3>Mural de Avisos</h3>
+            </a>
+        </button>
+        
+        <button onclick="limparSessao()">
+            <h3>Sair</h3>
+        </button>
+        
+    </div>
 
-              <button class="botao-inativo">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </button>
+        <div class="principal">
+            <div class="passos">
+                <h1>TUTORIAL</h1>
+                    <img src="../style/img/Alimentos.jpg" style="height: 800px; width: 70%;">
+                    <hr>
+                        <h1>PRIMEIRO PASSO: ATIVADOR</h1>
+                    <img src="../style/img/ativador.png" class="img-tutorial">
+                    <p>Passo 1: <br>Esta é a substância, o primeiro passo para sua vida nova, ela é essencial para que sua versão mais jovem se manifeste.</p>
+                    <hr>
+                    <h1>SEGUNDO PASSO: INJETAR A SUBSTÂNCIA</h1>
+                    <img src="../style/img/injeção.png" class="img-tutorial">
+                    <p>Passo 2: <br>A substância é intravenosa, necessitando que o usuário injete diretamente em um veia.</p>
+                    <hr> 
+                    <h1>TERCEIRO PASSO: MANIFESTAÇÃO</h1>
+                    <img src="../style/img/manifestação.png" class="img-tutorial">
+                    <p>Passo 3: <br>Caso os passos anteriores forem realizados com sucesso, a sua versão mais jovem deverá seguir os próximos passos daqui em diante.
+                    <hr> <h1>QUARTO PASSO(CLONE): COSTURA</h1>
+                    <img src="../style/img/kitcostura.png" class="img-tutorial">
+                    <p>Passo 4: <br>O clone deverá realizar a sutura da ferida deixada após o processo de inicialização.</p>
+                    <hr>
+                    <h1>QUINTO PASSO (CLONE): ALIMENTAÇÃO</h1>
+                    <img src="../style/img/comida.jpg" class="img-tutorial">
+                    <p>Passo 5: <br>Para que a troca seja respeitada, enquanto a matrix (ou o clone) se encontrão em estado adormecido, é de extrema importância que um pacote de comida intravenosa (que veio com o kit) esteja conectado à matrix/clone (o pacote têm duração de 7 dias). <br></p>
+                    <hr>
+                    <h1>SEXTO PASSO(CLONE): ESTABILIZADOR</h1>
+                    <img src="../style/img/estabilizador.png" class="img-tutorial">
+                    <p>Passo 6: <br>Para a sobrevivência do clone é necessário estabilizar DIARIAMENTE, retirando suco vital pela coluna vertebral e utilizando um dos injetores para aplicar (geralmente em tecido muscular).</p>
+                    <hr>
+                    <h1>SÉTIMO PASSO: TROCA</h1>
+                    <img src="../style/img/troca.png" class="img-tutorial">
+                    <p>Passo 7: <br>A troca é extremamente importante, sendo o momento em que você estará indo de volta para o corpo da matrix, para que assim seja feito o procesSo de recuperação do suco vital(que só ocorre quando a matrix está acordada) ou indo para o corpo do clone para que assim possa viver sua nova realidade.</p>
+                    <hr>
+                    <h1>OITAVO PASSO: REPOR ALIMENTO</h1>
+                    <img src="../style/img/kitrefill.png" class="img-tutorial">
+                    <p>Passo 8: <br>Caso esteja aproveitando sua nova vida, é provável que irá querer continuar, necessitando assim de mais alimento para quando estiver em estado adormecido, apenas ligue no número exclusivo no seu cartão e assim saberemos em qual caixa colocar.</p>
+                    <hr>
+                    <h1>AVISO IMPORTANTE</h1>
+                    <img src="../style/img/youareone.jpg" class="img-tutorial">
+                    <p>SEJA BEM-VINDO(A) E APROVEITE SUA NOVA VIDA! <br><br>E lembre-se: não existe "ele"/"ela", apenas "você", respeite a ordem. <br><br> YOU ARE ONE.</p>
 
-            <button onclick="limparSessao()">
-                <h3>Sair</h3>
-            </button>
-
+            </div>    
         </div>
-
-            <div class="cards" id="cardAquarios">
-                
-            </div>
-            
-        </div>
-
+    
     </div>
     
 </body>
 
 </html>
-<script>
-
-// Função chamada ao carregar a página para obter e processar os dados
-function obterDados(){
-  // Aqui seria a função que obteria os dados do banco de dados
-  // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
- 
-  // fetch('/obterDados')
-  // .then(function(response){
-  //   return response.json();
-  // })
-  // .then(function(data){
-  //   plotarGraficoLinha(data);
-  //   plotarGraficoBarra(data);
-  // })
-  // .catch(function(err){
-  //   console.log(err);
-  // })
-
-  // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
-  var dados = [{
-    jogador:'Endrick',
-    votos: 10
-  },
-  {
-    jogador:'João',
-    votos: 5
-  },
-  {
-    jogador:'Maria',
-    votos: 15
-  },
-  {
-    jogador:'José',
-    votos: 20
-  },
-  {
-    jogador:'Pedro',
-    votos: 25
-  },
-  {
-    jogador:'Ana',
-    votos: 30
-  }]
-
-  // Chamando a função para plotar o gráfico de linha com os dados
-  plotarGraficoLinha(dados);
-  // Chamando a função para plotar o gráfico de barra com os dados
-  plotarGraficoBarra(dados)
-}
-
-// Função para plotar o gráfico de linha
-function plotarGraficoLinha(dados){
-  
-  // Separando os rótulos (labels) e os dados dos votos
-  var votos = [];
-  var jogadores = [];
-
-  // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
-  }
-
-  // Capturando o elemento canvas pelo id 
-  var ctx = document.getElementById('linha').getContext('2d');
-  // Criando o gráfico de linha usando o Chart.js
-  var myChart = new Chart(ctx, {
-      type: 'line', // Tipo de gráfico: linha
-      data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
-          datasets: [{ 
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)', // Cor da borda das linhas
-              ],
-              borderWidth: 1 // Largura da borda das linhas
-          }]
-      },
-  });
-} 
-
-// Função para plotar o gráfico de barra
-function plotarGraficoBarra(dados){
-
-  var votos = [];
-  var jogadores = [];
-
-  // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
-  }
-
-  // Capturando o elemento canvas pelo id 
-  var ctx = document.getElementById('barra').getContext('2d');
-  // Criando o gráfico de barra usando o Chart.js
-  var myChart = new Chart(ctx, {
-      type: 'bar', // Tipo de gráfico: barra
-      data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
-          datasets: [{
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)', // Cor da borda das barras
-              ],
-              borderWidth: 1 // Largura da borda das barras
-          }]
-      },
-  });
-}
-</script>
-

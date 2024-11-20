@@ -10,6 +10,7 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 
@@ -26,8 +27,9 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border-right: 1px solid yellow;
+    border-right: 5px solid yellow;
     display: flex;
+    z-index: 2;
 }
 
 .nav h1 {
@@ -78,16 +80,24 @@ button:hover {
 }
 
 .principal {
-    width: 85%;
-    position: relative;
-    top: 0;
-    left: 15%;
-    background-color: #161618;
-    height: 100vh;
-    overflow: auto;
-    z-index: -1;
+  width: 85%;
+  position: relative;
+  top: 0;
+  left: 15%;
+  background-color: #161618;
+  height: 100vh;
+  overflow-y: scroll;
+  color: yellow;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.principal .passos{
+  text-align: center;
+  text-decoration: none;
 }
 
-.principal .passos{
-  
+.passos a{
+  text-decoration: none;
 }
+

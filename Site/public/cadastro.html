@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Substance (2024)</title>
-    <link rel="stylesheet" href="./style/css/cadastro.css">
+    <link rel="stylesheet" href="./style/css/css-inicio/cadastro.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="icon" href="./style/img/logo-removebg-preview.png">
 <body>
@@ -23,7 +23,7 @@
     <div class="login">
       <video src="./style/img/ad.mp4" autoplay muted loop></video>
       <div class="container">
-        <div class="card card-cadastro">
+        <div>
           <div class="formulario">
             <h2>CADASTRO</h2>
             <div class="input">
@@ -64,6 +64,15 @@
                 <option value="3">Indicação</option>
               </select>
             </div>
+            <br>
+            <div>
+              Informe sua favorita:
+              <select id="person_slc">
+                <option value="#" selected disabled></option>
+                <option value="1">Sue</option>
+                <option value="2">Elisabeth</option>
+              </select>
+            </div>
             </div>
             <button class="botao" onclick="cadastrar()"><strong>Cadastrar</strong></button>
             <div>
@@ -94,7 +103,8 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var regiaoVar = regiao_slc.value;
     var motivoVar = motivo_slc.value;
-
+    var personVar = person_slc.value;
+    console.log(personVar);
     // Verificando se há algum campo em branco
     if (
       emailVar == "" ||
@@ -102,13 +112,13 @@
       cpfVar == "" ||
       confirmacaoSenhaVar == "" ||
       regiaoVar == "" ||
-      motivoVar == ""
+      motivoVar == "" ||
+      personVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      // finalizarAguardar();
       return false;
     
     } else if (emailVar.includes('@') == false || emailVar.includes('.') == false) {
@@ -128,9 +138,9 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-
     console.log(regiaoVar);
     console.log(motivoVar);
+    console.log(personVar);
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -144,7 +154,8 @@
         senhaServer: senhaVar,
         cpfServer: cpfVar,
         motivoServer: motivoVar,
-        regiaoServer: regiaoVar
+        regiaoServer: regiaoVar,
+        personServer: personVar,
       }),
     })
       .then(function (resposta) {
