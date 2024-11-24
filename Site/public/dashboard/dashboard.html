@@ -1,88 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking</title>
-    <link rel="icon" href="./img/favicon.png"/>
+    <link rel="icon" href="./img/favicon.png" />
     <link rel="stylesheet" href="../style/css/css-dashboard/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Germania+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Germania+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
     <script src="https://kit.fontawesome.com/d5ea0dfb99.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
+
 <body onload="capturarDados()">
     <div class="janela">
 
-    
-    <div class="nav">
-            
-        <a href="../index.html"><div class="logo"><img src="../style/img/logo-removebg-preview.png"></div></a>
-        
-        <div class="hello">
-            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+
+        <div class="nav">
+
+            <a href="../index.html">
+                <div class="logo"><img src="../style/img/logo-removebg-preview.png"></div>
+            </a>
+
+            <button>
+                <h3>Início</h3>
+            </button>
+
+            <button>
+                <a href="./tutorial.html">
+                    <h3>Tutorial</h3>
+                </a>
+            </button>
+
+            <button>
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </button>
+
+            <button>
+                <a href="./mural.html">
+                    <h3>Mural de Avisos</h3>
+                </a>
+            </button>
+
+            <button>
+                <a href="../index.html">
+                    <h3>Sair</h3>
+                </a>
+            </button>
+
         </div>
-        
-        <button>
-            <h3>Início</h3>
-        </button>
-        
-        <button>
-            <a href="./tutorial.html">
-                <h3>Tutorial</h3>
-            </a>
-        </button>
-        
-        <button>
-            <a href="./dashboard.html">
-                <h3>Gráficos</h3>
-            </a>
-        </button>
-        
-        <button>
-            <a href="./mural.html">
-                <h3>Mural de Avisos</h3>
-            </a>
-        </button>
-        
-        <button>
-            <a href="../index.html"><h3>Sair</h3></a>
-        </button>
-        
-    </div>
 
         <div class="principal">
-          <div class="kpis">
-              <div class="content_kpi2"><h2>PERSONAGEM MAIS FAMOSO</h2> <h1 id="nome_do_personagem_kpi">NULL</h1></div>
-              <div class="content_kpi1"><h2>TOTAL DE USUÁRIOS</h2> <h1 id="usuarios_total">NULL</h1></div>
-              <div class="content_kpi3"><h2>MAIOR MOTIVO DE COMPRA ATUTAL</h2> <h1 id="motivo_kpi">NULL</h1></div>
-          </div>
-
-          <div class="graphic">
-            <div class="graphic2">
-                <canvas id="myChart"></canvas>
+            <div class="kpis">
+                <div class="content_kpi2">
+                    <h2>PERSONAGEM MAIS FAMOSO</h2>
+                    <h1 id="nome_do_personagem_kpi">NULL</h1>
+                </div>
+                <div class="content_kpi1">
+                    <h2>TOTAL DE USUÁRIOS</h2>
+                    <h1 id="usuarios_total">NULL</h1>
+                </div>
+                <div class="content_kpi3">
+                    <h2>MAIOR MOTIVO DE COMPRA ATUTAL</h2>
+                    <h1 id="motivo_kpi">NULL</h1>
+                </div>
             </div>
-            <div class="graphic1">
-                <canvas id="myDoughnutChart"></canvas>
+
+            <div class="graphic">
+                <div class="graphic2">
+                    <canvas id="graficoPie"></canvas>
+                </div>
+                <div class="graphic1">
+                    <canvas id="graficoBarra"></canvas>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
+
 </body>
+
 </html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 
 <script>
 
-function capturarDados(){
+    function capturarDados() {
 
-    fetch(`/medidas/countUsuario/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/countUsuario/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -96,7 +110,7 @@ function capturarDados(){
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    fetch(`/medidas/maiorMotivo/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/maiorMotivo/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -116,7 +130,7 @@ function capturarDados(){
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    fetch(`/medidas/maisFamosa/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/maisFamosa/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -133,6 +147,76 @@ function capturarDados(){
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
+    
+
+
+    fetch(`/medidas/personagens/`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                const ctx = document.getElementById('graficoPie');
+                console.log(resposta)
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sue', 'Elisabeth'],
+                        datasets: [{
+                            label: 'Votos',
+                            data: [resposta[0].total_usuarios, resposta[1].total_usuarios],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+
+
+
+fetch(`/medidas/regioes/`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                const ctx = document.getElementById('graficoBarra');
+                console.log(resposta)
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia'],
+                        datasets: [{
+                            label: 'Votos',
+                            data: [resposta[0].total_usuarios, resposta[1].total_usuarios, resposta[2].total_usuarios, resposta[3].total_usuarios],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
 
 }
 

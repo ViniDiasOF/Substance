@@ -135,6 +135,13 @@ nav ul li a:hover {
     font-size: 16px;
     color: yellow;
   }
+
+.input input[type="password"]:focus ~ .label,
+.input input[type="password"]:valid ~ .label {
+    top: -20px;
+    font-size: 16px;
+    color: yellow;
+  }
   
 .input .underline {
     position: absolute;

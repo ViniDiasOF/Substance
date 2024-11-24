@@ -23,4 +23,12 @@ router.get("/maisFamosa/", function (req,res) {
     medidaController.buscarMaisFamosa(req,res);
 })
 
+router.get("/personagens/", function (req,res) {
+    medidaController.graficoMaisFamosa(req,res);
+})
+
+router.get("/regioes/", function (req,res) {
+    medidaController.graficoMaiorRegiao(req,res);
+})
+
 module.exports = router;

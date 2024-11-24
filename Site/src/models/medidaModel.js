@@ -45,14 +45,29 @@ function buscarMotivosTotais(){
 }
 
 function buscarMaisFamosa(){
-    var instrucaoSql = 'SELECT person, COUNT(*) AS total_usuarios FROM usuario GROUP BY person ORDER BY total_usuarios DESC LIMIT 1'
+    var instrucaoSql = 'SELECT person, COUNT(*) AS total_usuarios FROM usuario GROUP BY person ORDER BY total_usuarios DESC LIMIT 1;'
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql)
 }
+
+function graficoMaisFamosa(){
+    var instrucaoSql = 'SELECT person as personagens, COUNT(id_usuario) AS total_usuarios FROM usuario GROUP BY person ORDER BY total_usuarios DESC LIMIT 2;'
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql)
+}
+
+function graficoMaiorRegiao(){
+    var instrucaoSql = 'SELECT regiao, COUNT(*) AS total_usuarios FROM usuario GROUP BY regiao ORDER BY total_usuarios DESC LIMIT 4;'
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql)
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarUsuariosTotais,
     buscarMotivosTotais,
-    buscarMaisFamosa
+    buscarMaisFamosa,
+    graficoMaisFamosa,
+    graficoMaiorRegiao
 };

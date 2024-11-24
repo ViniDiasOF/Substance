@@ -23,11 +23,7 @@
     </header>
 
     <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
+        <img src="./style/img/armarios.jpg" alt="">
         <div class="container">
             <div class="card card-login">
                 <div class="formulario">
@@ -38,13 +34,17 @@
                     <div class="underline"></div>
                   </div> 
                 <div class="input">
-                    <input type="text" id="senha_input" required="">
+                    <input type="password" id="senha_input" required="">
                     <label for="input" class="label">Senha:</label>
                     <div class="underline"></div>
                   </div>
                     <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
-
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
                 <div id="div_erros_login"></div>
             </div>
         </div>

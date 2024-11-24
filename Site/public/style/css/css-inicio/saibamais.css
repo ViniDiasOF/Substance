@@ -165,14 +165,14 @@ img{
 }
 
 .login {
-    height: 800px;
-    background-image: url(/public/style/img/elisabethKiss.jpg);
+    height: 600px;
+    background-image: url(/Site/public/style/img/elisabethKiss.jpg);
     background-size: cover;
     transition: all 3s ease-in-out;
   }
 
 .login:hover {
-    background-image: url(/public/style/img/sueWink.png);
+    background-image: url(/Site/public/style/img/sueWink.png);
     background-size: cover;
 }
 

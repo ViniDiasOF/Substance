@@ -60,12 +60,21 @@ nav ul li a:hover {
 }
   
 .login {
-    height: 100%;
-    width: 100%;
-    background-image: url(/Substance/Site/public/style/img/armarios.jpg);
-    background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   }
   
+.login img {
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+  z-index: -1;
+}
+
 .login .container {
     justify-content: flex-end;
     align-items: center;
@@ -86,16 +95,16 @@ nav ul li a:hover {
     box-shadow: 0px 15px 60px yellow;
     outline: 1px solid yellow;
     border-radius: 10px;
-  }
+}
 
 .formulario h2{
     color: white;
-  }
+}
 
 .input {
     position: relative;
     width: 200px;
-  }
+}
   
 .input input{
     font-size: 20px;
@@ -105,7 +114,7 @@ nav ul li a:hover {
     padding: 5px 0;
     background-color: transparent;
     outline: none;
-  }
+}
   
 .input .label {
     position: absolute;
@@ -114,14 +123,21 @@ nav ul li a:hover {
     color: yellow;
     transition: all 0.3s ease;
     pointer-events: none;
-  }
+}
   
 .input input[type="text"]:focus ~ .label,
 .input input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: yellow;
+}
+
+.input input[type="password"]:focus ~ .label,
+.input input[type="password"]:valid ~ .label {
     top: -20px;
     font-size: 16px;
     color: yellow;
-  }
+}
   
 .input .underline {
     position: absolute;
