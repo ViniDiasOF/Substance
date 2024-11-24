@@ -29,7 +29,30 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+
+function buscarUsuariosTotais(){
+    
+    var instrucaoSql = 'SELECT count(id_usuario) as total FROM usuario;'
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarMotivosTotais(){
+
+    var instrucaoSql = 'SELECT motivo, COUNT(*) AS total_usuarios FROM usuario GROUP BY motivo ORDER BY total_usuarios DESC LIMIT 1;'
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarMaisFamosa(){
+    var instrucaoSql = 'SELECT person, COUNT(*) AS total_usuarios FROM usuario GROUP BY person ORDER BY total_usuarios DESC LIMIT 1'
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql)
+}
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-}
+    buscarMedidasEmTempoReal,
+    buscarUsuariosTotais,
+    buscarMotivosTotais,
+    buscarMaisFamosa
+};

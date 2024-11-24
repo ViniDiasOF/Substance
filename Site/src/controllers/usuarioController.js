@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-// var aquarioModel = require("../models/aquarioModel");
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -61,7 +61,6 @@ function cadastrar(req, res) {
     `)
 
 
-    // Faça as validações dos valores
    if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {

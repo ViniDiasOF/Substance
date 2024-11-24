@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet"/>
 </head>
-<body>
+<body onload="capturarDados()">
     <div class="janela">
 
     
@@ -48,8 +48,8 @@
             </a>
         </button>
         
-        <button onclick="limparSessao()">
-            <h3>Sair</h3>
+        <button>
+            <a href="../index.html"><h3>Sair</h3></a>
         </button>
         
     </div>
@@ -58,14 +58,14 @@
           <div class="kpis">
               <div class="content_kpi2"><h2>PERSONAGEM MAIS FAMOSO</h2> <h1 id="nome_do_personagem_kpi">NULL</h1></div>
               <div class="content_kpi1"><h2>TOTAL DE USUÁRIOS</h2> <h1 id="usuarios_total">NULL</h1></div>
-              <div class="content_kpi3"><h2>IDADE MÉDIA DOS CONSUMIDORES</h2> <h1 id="regiao_kpi">NULL</h1></div>
+              <div class="content_kpi3"><h2>MAIOR MOTIVO DE COMPRA ATUTAL</h2> <h1 id="motivo_kpi">NULL</h1></div>
           </div>
 
           <div class="graphic">
-            <div class="graphic1">
+            <div class="graphic2">
                 <canvas id="myChart"></canvas>
             </div>
-            <div class="graphic2">
+            <div class="graphic1">
                 <canvas id="myDoughnutChart"></canvas>
             </div>
         </div>
@@ -80,12 +80,60 @@
 
 <script>
 
+function capturarDados(){
 
+    fetch(`/medidas/countUsuario/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    usuarios_total.innerHTML = resposta[0].total
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
+    fetch(`/medidas/maiorMotivo/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    if (resposta[0].motivo == 1) {
+                        motivo_kpi.innerHTML = "Influência";
+                    } else if (resposta[0].motivo == 2) {
+                        motivo_kpi.innerHTML = "Curiosidade";
+                    } else {
+                        motivo_kpi.innerHTML = "Indicação";
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
+    fetch(`/medidas/maisFamosa/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    if (resposta[0].person == 1) {
+                        nome_do_personagem_kpi.innerHTML = "Sue";
+                    } else {
+                        nome_do_personagem_kpi.innerHTML = "Elisabeth";
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
-  
-  
- 
-  
+}
+
 </script>
