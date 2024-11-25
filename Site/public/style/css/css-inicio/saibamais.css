@@ -166,13 +166,13 @@ img{
 
 .login {
     height: 600px;
-    background-image: url(/Site/public/style/img/elisabethKiss.jpg);
+    background-image: url(../../img/elisabethKiss.jpg);
     background-size: cover;
     transition: all 3s ease-in-out;
   }
 
 .login:hover {
-    background-image: url(/Site/public/style/img/sueWink.png);
+    background-image: url(../../img/sueWink.png);
     background-size: cover;
 }
 
